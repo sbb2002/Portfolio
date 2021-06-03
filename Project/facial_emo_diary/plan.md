@@ -17,5 +17,4 @@
 # Imports
 
 import DeepFace
-
 import Opencv
