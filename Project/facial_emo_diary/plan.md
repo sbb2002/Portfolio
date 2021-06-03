@@ -8,6 +8,10 @@
 
 일단 참고가 될 사이트나 링크를 기록해두자.
 
-https://www.youtube.com/watch?v=fkgpvkqcoJc
+#REF
+
+시현: https://www.youtube.com/watch?v=fkgpvkqcoJc
+
+이론: https://www.frontiersin.org/articles/10.3389/fpsyg.2018.01303/full
 
 # Imports
