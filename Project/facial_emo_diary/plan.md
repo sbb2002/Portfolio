@@ -15,3 +15,7 @@
 이론: https://www.frontiersin.org/articles/10.3389/fpsyg.2018.01303/full
 
 # Imports
+
+import DeepFace
+
+import Opencv
