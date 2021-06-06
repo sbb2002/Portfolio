@@ -1,0 +1,82 @@
+배추 가격 예측 AI 로봇 project
+
+기상청 전국 기온, 강수량 데이터 + 전국 월별 배추가격 빅데이터 
+= 시계열 배추가격 수치예측
+
+* 메뉴얼
+1. 데이터 수집 - 기온, 강수량 / 배추가격
+
+    - 필요한 데이터를 직접 확인. 홈페이지 등에 있는 참고를 읽어 착오없도록.
+
+    - 기상청 통계: https://data.kma.go.kr/climate/StatisticsDivision/selectStatisticsDivision.do?pgmNo=158
+        ㄴ 일별로 확인가능.
+        ㄴ 통계분석 > 조건별통계 > 일별검색 > xlsx 다운
+
+    - 농산물 소매: https://www.kamis.or.kr/customer/price/retail/item.do?action=priceinfo&regday=2021-02-15&itemcategorycode=200&itemcode=211&kindcode=&productrankcode=&convert_kg_yn=N
+        ㄴ 대형마트, 전통시장 등에서 소비자에게 판매하는 가격임.
+        ㄴ 소매가격 > 품목별 > 배추 > 조회 > 데이터 저장
+    
+2. 데이터 전처리(정제) - 두 데이터에서 무엇을 사용하고, 어떻게 합치고 쳐내고 할지 결정
+
+    - 날짜 / 평균기온 / 최소기온 / 최고기온 / 강수량 / 해당일 평균가격 : columns
+
+    - openpyxl을 이용
+
+
+3. 24절기 분류
+
+    - 소한 = 0
+
+    - 대한 = 1
+
+    - 입춘 = 2
+
+    - 우수 = 3
+
+    - 경칩 = 4
+
+    - 춘분 = 5
+
+    - 청명 = 6
+
+    - 곡우 = 7
+
+    - 입하 = 8
+
+    - 소만 = 9
+
+    - 망종 = 10
+
+    - 하지 = 11
+
+    - 소서 = 12
+
+    - 대서 = 13
+
+    - 입추 = 14
+
+    - 처서 = 15
+
+    - 백로 = 16
+
+    - 추분 = 17
+
+    - 한로 = 18
+
+    - 상강 = 19
+
+    - 입동 = 20
+
+    - 소설 = 21
+
+    - 대설 = 22
+
+    - 동지 = 23
+
++) correlation 알아보고, 가장 연관성 떨어지는 col을 지우고
+    대신 금리를 넣어보자
+    - corr(): seasons(=.07) -> interest
+    - int: https://www.bok.or.kr/portal/singl/baseRate/list.do?dataSeCd=01&menuNo=200643
+    
+Ref)
+https://github.com/ndb796/Vegita
